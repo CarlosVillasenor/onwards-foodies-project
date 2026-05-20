@@ -3,8 +3,9 @@ import Image from 'next/image';
 import { getMeal } from '@/lib/meals';
 import { notFound } from 'next/navigation';
 
-export function generateMetadata({ params }) {
-  const meal = getMeal(params.mealSlug);
+export async function generateMetadata({ params }) {
+  const { mealSlug } = await params;
+  const meal = getMeal(mealSlug);
 
   if (!meal) {
     notFound();
@@ -16,8 +17,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function MealDetailsPage({ params }) {
-  const meal = getMeal(params.mealSlug);
+export default async function MealDetailsPage({ params }) {
+  const { mealSlug } = await params;
+  const meal =  getMeal(mealSlug);
 
   if (!meal) {
     notFound();
