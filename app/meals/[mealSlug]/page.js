@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }) {
   const { mealSlug } = await params;
-  const meal = getMeal(mealSlug);
+  const meal = await getMeal(mealSlug);
 
   if (!meal) {
     notFound();
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
 
 export default async function MealDetailsPage({ params }) {
   const { mealSlug } = await params;
-  const meal =  getMeal(mealSlug);
+  const meal = await getMeal(mealSlug);
 
   if (!meal) {
     notFound();
@@ -32,9 +32,9 @@ export default async function MealDetailsPage({ params }) {
       <header className={classes.header}>
         <div className={classes.image}>
           <Image
-          src={`https://carlos-nextjs-demo-users-image.s3.amazonaws.com/${meal.image}`}
-          alt={meal.title} 
-          fill 
+            src={`https://carlos-nextjs-demo-users-image.s3.amazonaws.com/${meal.image}`}
+            alt={meal.title}
+            fill
           />
         </ div>
         <div className={classes.headerText}>
@@ -46,11 +46,11 @@ export default async function MealDetailsPage({ params }) {
         </div>
       </header>
       <main>
-        <p 
-        className={classes.instructions} 
-        dangerouslySetInnerHTML={{
-          __html: meal.instructions
-        }}></p>
+        <p
+          className={classes.instructions}
+          dangerouslySetInnerHTML={{
+            __html: meal.instructions
+          }}></p>
       </main>
     </>
   );
