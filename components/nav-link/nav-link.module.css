@@ -1,3 +1,5 @@
+/* Base & Mobile First */
+
 .link {
   text-decoration: none;
   color: #ddd6cb;
@@ -20,4 +22,12 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Tablet and Desktop */
+
+@media (min-width: 768px) {
+  .link {
+    font-size: 1.25rem;
+  }
 }

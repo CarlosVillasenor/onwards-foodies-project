@@ -1,14 +1,16 @@
+/* Base & Mobile First */
+
 .header {
   display: flex;
   gap: 3rem;
   margin: 3rem auto;
   width: 90%;
   max-width: 75rem;
+  flex-direction: column;
 }
 
 .slideshow {
-  width: 40rem;
-  height: 25rem;
+  height: 20rem;
 }
 
 .hero {
@@ -72,4 +74,28 @@
   width: 90%;
   margin: 2rem auto;
   text-align: center;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .section {
+    font-size: 1.25rem;
+  }
+
+  .header {
+    flex-direction: row;
+    padding: 2rem 5%;
+  }
+
+  .slideshow {
+    width: 40rem;
+    height: 25rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .section {
+    font-size: 1.5rem;
+  }
 }
