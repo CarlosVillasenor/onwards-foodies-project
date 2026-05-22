@@ -4,10 +4,11 @@ import classes from './page.module.css';
 import ImagePicker from '@/components/shared-meals/image-picker';
 import { shareMealHandler } from '@/lib/action';
 import MealsFormSubmit from '@/components/shared-meals/meals-form-submit';
-// import { useFormState } from 'react-dom';
 import React from 'react';
 
 export default function ShareMealPage() {
+  // useActionState is a React hook that allows you to manage state in an action handler.
+  // It returns an array with two elements: the current state and a function to update the state.
   const [state, formAction] = React.useActionState(shareMealHandler, { message: null });
 
   return (
