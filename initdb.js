@@ -1,6 +1,7 @@
 const sql = require('better-sqlite3');
 const db = sql('meals.db');
 
+// Dummy meal data to populate the database
 const dummyMeals = [
   {
     title: 'Juicy Cheese Burger',
@@ -164,6 +165,7 @@ const dummyMeals = [
   },
 ];
 
+// Create the meals table if it doesn't exist
 db.prepare(`
   CREATE TABLE IF NOT EXISTS meals (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -177,6 +179,7 @@ db.prepare(`
     )
 `).run();
 
+// Function to insert dummy meal data into the database
 async function initData() {
   const stmt = db.prepare(`
       INSERT INTO meals VALUES (
@@ -196,4 +199,5 @@ async function initData() {
   }
 }
 
+// Call the function to initialize the database with dummy data
 initData();
