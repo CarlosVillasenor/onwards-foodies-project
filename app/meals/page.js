@@ -14,7 +14,7 @@ async function Meals() {
   const meals = await getAllMeals();
 
   if (meals.length === 0) {
-    return <p className={classes.noMeals}>No meals found. Maybe share one?</p>
+    return <p className={classes['no-meals']}>No meals found. Maybe share one?</p>
   }
 
   return (<SharedMealsGrid meals={meals} />);
